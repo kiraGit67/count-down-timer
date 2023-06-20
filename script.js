@@ -11,35 +11,35 @@ const countElement = document.querySelector("#count");
 let counter = 0;
 
 startButton.addEventListener("click", function () {
-  counter = 10;
+  counter = 65;
+  countElement.innerHTML = formatCountAsString(counter);
+
   countElement.hidden = false;
   startButton.hidden = true;
 
   const intervalId = setInterval(function () {
     counter--;
-    console.log(counter);
-    /*
-    if (counter > 0 && counter < 10) {
-      countElement.innerHTML = "0" + counter;
-    } else {
-      countElement.innerHTML = counter;
-    }
-    
-    countElement.innerHTML =
-      counter > 0 && counter < 10 ? "0" + counter : counter;
-    
-    countElement.innerHTML = ("0" + counter.toString()).slice(-2);
-    */
 
-    countElement.innerHTML =
-      counter > 0 ? ("0" + counter.toString()).slice(-2) : counter;
+    //Umwandlung in Minuten
+    const minutes = Math.floor(counter / 60);
+    //und Sekunden
+    const seconds = counter % 60;
+    countElement.innerHTML = formatCountAsString(counter);
 
     if (counter === -1) {
       clearInterval(intervalId);
+
       countElement.hidden = true;
       startButton.hidden = false;
-      counter = 10;
-      countElement.innerHTML = counter;
     }
   }, 1000);
 });
+
+function formatCountAsString(counterInSeconds) {
+  //Umwandlung in Minuten
+  const minutes = Math.floor(counterInSeconds / 60);
+  //und Sekunden
+  let seconds = counterInSeconds % 60;
+  seconds = ("0" + seconds).slice(-2);
+  return minutes + ":" + seconds;
+}
