@@ -1,0 +1,39 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+  background-color: hotpink;
+  margin: 0;
+  padding: 1.5rem;
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#count {
+  font-size: 3.5rem;
+  font-weight: 600;
+  color: white;
+}
+
+#start-btn {
+  padding: 1rem 1.5rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1.25rem;
+  color: hotpink;
+  border: 2px solid pink;
+}
