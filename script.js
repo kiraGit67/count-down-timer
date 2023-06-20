@@ -27,9 +27,12 @@ startButton.addEventListener("click", function () {
     
     countElement.innerHTML =
       counter > 0 && counter < 10 ? "0" + counter : counter;
+    
+    countElement.innerHTML = ("0" + counter.toString()).slice(-2);
     */
 
-    countElement.innerHTML = ("0" + counter.toString()).slice(-2);
+    countElement.innerHTML =
+      counter > 0 ? ("0" + counter.toString()).slice(-2) : counter;
 
     if (counter === -1) {
       clearInterval(intervalId);
